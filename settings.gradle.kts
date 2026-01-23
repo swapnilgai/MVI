@@ -20,5 +20,8 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "MVI"
+
+includeBuild("app-config-plugin")
 include(":app")
+include(":core")
  
