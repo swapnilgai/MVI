@@ -1,9 +1,14 @@
+import com.example.appconfigplugin.ProjectProperties
+import com.example.appconfigplugin.projectProperties
+
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
     id(libs.plugins.daggerHilt.get().toString())
     id(libs.plugins.ksp.get().toString())
 }
+
+val pp : ProjectProperties = projectProperties().get()
 
 android {
     namespace = libs.plugins.coreNameSpace.get().toString()

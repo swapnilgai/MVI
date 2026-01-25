@@ -11,11 +11,9 @@ import kotlin.coroutines.CoroutineContext
 @Module
 @InstallIn(SingletonComponent::class)
 object CoroutineModule{
-
     @Provides
     @IoDispatcher
     fun provideIoDispatcher(): CoroutineContext{
        return Dispatchers.IO
     }
-
 }

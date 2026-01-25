@@ -3,7 +3,9 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id(libs.plugins.daggerHilt.get().toString())
     id(libs.plugins.ksp.get().toString())
+    id("app-config-plugin")
 }
+//val projectProperties: ProjectProperties = projectProperties().get()
 
 android {
     namespace = libs.plugins.mainNamespace.get().toString()
