@@ -45,6 +45,10 @@ android {
 
 dependencies {
 
+    implementation(project(":navigation"))
+    implementation(project(":core"))
+
+
     //region D.I Dependencies
     ksp(libs.hilt.compiler)
     ksp(libs.hilt.ksp.compiler)

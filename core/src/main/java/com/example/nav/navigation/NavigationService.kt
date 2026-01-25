@@ -1,4 +1,4 @@
-package com.example.core.navigation
+package com.example.nav.navigation
 
 interface NavigationService {
     fun goBack()

@@ -1,6 +1,5 @@
-package com.example.core.presentation
+package com.example.nav.presentation
 
-import androidx.compose.runtime.MutableState
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -24,7 +23,6 @@ abstract class BaseViewModel<UiState, Event>(init: UiState): ViewModel(){
                 handleEvent(it)
             }
         }
-
     }
 
     abstract fun handleEvent(event: Event)

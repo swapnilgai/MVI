@@ -1,4 +1,4 @@
-package com.example.core.utils
+package com.example.nav.utils
 
 import javax.inject.Qualifier
 

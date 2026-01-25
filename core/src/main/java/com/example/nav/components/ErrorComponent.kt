@@ -1,4 +1,4 @@
-package com.example.core.components
+package com.example.nav.components
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
