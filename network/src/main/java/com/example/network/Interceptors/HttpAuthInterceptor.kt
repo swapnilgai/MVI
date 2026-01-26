@@ -4,8 +4,12 @@ import com.example.core.utils.ServerEnvironment
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response
+import javax.inject.Inject
+import javax.inject.Singleton
 
-internal class HttpAuthInterceptor(val serverEnvironment: ServerEnvironment) : Interceptor {
+
+@Singleton
+internal class HttpAuthInterceptor @Inject constructor(val serverEnvironment: ServerEnvironment) : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): Response {
        val requestWithAuth =  addAuthKey(chain.request())
