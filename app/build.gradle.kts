@@ -1,3 +1,6 @@
+import com.example.appconfigplugin.ProjectProperties
+import com.example.appconfigplugin.projectProperties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -22,7 +25,6 @@ android {
         }
     }
 
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -32,6 +34,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = libs.versions.kotlinCompilerVersion.get()
@@ -39,6 +42,23 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
+
+    buildTypes {
+        val projectProperties : ProjectProperties = projectProperties().get()
+        val baseUrl = projectProperties.baseUrl
+        val apiKey = projectProperties.apiKey
+
+        debug {
+            buildConfigField("boolean", "DEVELOPMENT_MODE", "true")
+            buildConfigField("String", "BASE_URL", "$baseUrl")
+            buildConfigField("String", "API_KEY", "$apiKey")
+        }
+        release {
+            buildConfigField("boolean", "DEVELOPMENT_MODE", "false")
+            buildConfigField("String", "BASE_URL", "$baseUrl")
+            buildConfigField("String", "API_KEY", "$apiKey")
         }
     }
 }

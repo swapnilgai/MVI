@@ -17,12 +17,6 @@ android {
 
     defaultConfig {
         minSdk = libs.versions.minSdk.get().toInt()
-
-        val baseUrl = projectProperties.baseUrl
-        val apiKey = projectProperties.apiKey
-
-        buildConfigField("String", "BASE_URL", "$baseUrl")
-        buildConfigField("String", "API_KEY", "$apiKey")
     }
 
 
@@ -35,7 +29,6 @@ android {
     }
     buildFeatures {
         compose = true
-        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = libs.versions.kotlinCompilerVersion.get()
