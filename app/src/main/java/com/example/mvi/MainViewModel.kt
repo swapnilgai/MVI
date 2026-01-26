@@ -1,7 +1,7 @@
 package com.example.mvi
 
 import com.example.nav.Navigator
-import com.example.nav.presentation.BaseViewModel
+import com.example.core.presentation.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

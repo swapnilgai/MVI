@@ -1,6 +1,6 @@
-package com.example.nav.di
+package com.example.core.di
 
-import com.example.nav.utils.IoDispatcher
+import com.example.core.utils.IoDispatcher
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

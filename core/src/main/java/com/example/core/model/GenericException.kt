@@ -1,4 +1,4 @@
-package com.example.nav.model
+package com.example.core.model
 
 import java.io.IOException
 

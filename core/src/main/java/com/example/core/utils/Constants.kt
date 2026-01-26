@@ -1,4 +1,4 @@
-package com.example.nav.utils
+package com.example.core.utils
 
 object Constants {
     const val DEVELOPMENT_MODE = true

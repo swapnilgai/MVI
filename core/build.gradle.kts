@@ -1,5 +1,6 @@
 import com.example.appconfigplugin.ProjectProperties
 import com.example.appconfigplugin.projectProperties
+import org.gradle.kotlin.dsl.get
 
 plugins {
     alias(libs.plugins.androidLibrary)
@@ -8,7 +9,7 @@ plugins {
     id(libs.plugins.ksp.get().toString())
 }
 
-val pp : ProjectProperties = projectProperties().get()
+val projectProperties : ProjectProperties = projectProperties().get()
 
 android {
     namespace = libs.plugins.coreNameSpace.get().toString()
@@ -16,7 +17,14 @@ android {
 
     defaultConfig {
         minSdk = libs.versions.minSdk.get().toInt()
+
+        val baseUrl = projectProperties.baseUrl
+        val apiKey = projectProperties.apiKey
+
+        buildConfigField("String", "BASE_URL", "$baseUrl")
+        buildConfigField("String", "API_KEY", "$apiKey")
     }
+
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -27,11 +35,13 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = libs.versions.kotlinCompilerVersion.get()
     }
 }
+
 
 dependencies {
     implementation(libs.retrofit.core)

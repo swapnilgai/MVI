@@ -1,4 +1,4 @@
-package com.example.nav.components
+package com.example.core.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable

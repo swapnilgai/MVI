@@ -1,0 +1,54 @@
+package com.example.network.di
+
+import android.os.Build
+import androidx.annotation.RequiresApi
+import com.example.core.utils.Constants
+import com.example.core.utils.Constants.BASE_URL
+import com.example.core.utils.ServerEnvironment
+import com.example.network.Interceptors.DefaultHttpAuthInterceptorProvider
+import com.example.network.Interceptors.HttpAuthInterceptor
+import com.example.network.Interceptors.HttpAuthInterceptorProvider
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.time.Duration
+import javax.inject.Singleton
+
+@Module
+@InstallIn(SingletonComponent::class)
+internal object NetworkModule {
+    @Singleton
+    @Provides
+    fun provideRetrofit(okHttpClient: OkHttpClient, serverEnvironment: ServerEnvironment): Retrofit = Retrofit.Builder()
+        .baseUrl(serverEnvironment.baseUrl)
+        .addConverterFactory(GsonConverterFactory.create())
+        .client(okHttpClient)
+        .build()
+
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    @Provides
+    @Singleton
+    fun provideHttpClient(
+        httpAuthInterceptorProvider: HttpAuthInterceptorProvider,
+    ): OkHttpClient {
+        return OkHttpClient.Builder()
+            .connectTimeout(Duration.ofSeconds(10))
+            .readTimeout(Duration.ofSeconds(30))
+            .writeTimeout(Duration.ofSeconds(30))
+            .addInterceptor(httpAuthInterceptorProvider.authInterceptor)
+            .build()
+    }
+
+    @Singleton
+    @Provides
+    fun provideHttpAuthInterceptor(serverEnvironment: ServerEnvironment): HttpAuthInterceptorProvider {
+        return DefaultHttpAuthInterceptorProvider(serverEnvironment)
+    }
+
+}
