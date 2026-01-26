@@ -67,6 +67,7 @@ dependencies {
 
     implementation(project(":navigation"))
     implementation(project(":core"))
+    implementation(project(":home"))
 
 
     //region D.I Dependencies

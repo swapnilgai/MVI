@@ -37,5 +37,4 @@ abstract class BaseViewModel<UiState, Event>(init: UiState): ViewModel(){
         }
     }
 
-
 }
