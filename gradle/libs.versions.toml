@@ -25,6 +25,11 @@ junit = "4.13.2"
 mockito-kotlin = "3.2.0"
 coroutinesCore = "1.7.3"
 
+truth = "1.1.5"
+coroutinesTest = "1.7.3"
+mockk = "1.13.5"
+junitJupiter = "5.14.0"
+
 [libraries]
 appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
 android-core = { module = "androidx.core:core-ktx", version.ref = "androidCore" }
@@ -51,8 +56,12 @@ hilt-ksp-compiler = { module = "com.google.dagger:hilt-android-compiler", versio
 mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockito" }
 mockito = { module = "org.mockito.kotlin:mockito-kotlin", version.ref = "mockito-kotlin" }
 android-test = { module = "androidx.test:core", version.ref = "android-test" }
+
 junit = { module = "junit:junit", version.ref = "junit" }
 coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutinesCore" }
+truth = { module = "com.google.truth:truth", version.ref = "truth" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junitJupiter" }
 
 [plugins]
 androidLibrary = { id = "com.android.library", version.ref = "agp" }

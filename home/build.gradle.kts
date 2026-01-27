@@ -50,4 +50,10 @@ dependencies {
     implementation(libs.compose.activity)
     implementation(libs.coil)
     //endregion
+
+    testImplementation(libs.junit)
+    testImplementation(libs.truth)
+    testImplementation(libs.coroutines.test)
+    testImplementation(libs.mockk)
+
 }
