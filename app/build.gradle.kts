@@ -67,7 +67,8 @@ dependencies {
 
     implementation(project(":navigation"))
     implementation(project(":core"))
-
+    implementation(project(":home"))
+    implementation(project(":detail"))
 
     //region D.I Dependencies
     ksp(libs.hilt.compiler)

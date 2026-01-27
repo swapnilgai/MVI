@@ -13,6 +13,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import com.example.detail.DetailScreenRoot
+import com.example.home.presentation.HomeScreenRoot
 import com.example.nav.AppNavigator
 import com.example.nav.Navigator
 import dagger.hilt.android.AndroidEntryPoint
@@ -34,26 +36,13 @@ class MainActivity : ComponentActivity() {
                 AppNavigator(
                     navigator = navigator,
                     homeScreen = {
-                        Home(onClick = {
-                            viewModel.setEvent(MainEvent.Back)
-                        })
+                        HomeScreenRoot()
+                    },
+                    detailScreen = { id ->
+                        DetailScreenRoot(id)
                     }
                 )
             }
         }
-    }
-}
-
-
-@Composable
-fun Home(onClick: () -> Unit){
-    Column(modifier = Modifier.fillMaxSize(), verticalArrangement = Arrangement.Center) {
-        Text(modifier = Modifier.clickable { onClick() } , text = "Click Me")
-
-//        LoadingComponent()
-    }
-
-    BackHandler(enabled = true) {
-        onClick()
     }
 }

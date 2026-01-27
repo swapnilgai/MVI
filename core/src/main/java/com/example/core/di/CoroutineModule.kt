@@ -6,6 +6,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.Dispatchers
+import javax.inject.Singleton
 import kotlin.coroutines.CoroutineContext
 
 @Module
@@ -13,7 +14,7 @@ import kotlin.coroutines.CoroutineContext
 object CoroutineModule{
     @Provides
     @IoDispatcher
-    fun provideIoDispatcher(): CoroutineContext{
+    fun provideIoDispatcher(): CoroutineContext {
        return Dispatchers.IO
     }
 }

@@ -9,11 +9,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 
 @Composable
-fun ErrorComponent(error: Throwable?) {
+fun ErrorComponent(error: String) {
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier.fillMaxSize()
     ) {
-        error?.message?.let { Text(text = it, color = Color.Red) }
+        error.let { Text(text = it, color = Color.Red) }
     }
 }
