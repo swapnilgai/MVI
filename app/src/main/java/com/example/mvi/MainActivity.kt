@@ -13,6 +13,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import com.example.detail.DetailScreenRoot
 import com.example.home.presentation.HomeScreenRoot
 import com.example.nav.AppNavigator
 import com.example.nav.Navigator
@@ -36,6 +37,9 @@ class MainActivity : ComponentActivity() {
                     navigator = navigator,
                     homeScreen = {
                         HomeScreenRoot()
+                    },
+                    detailScreen = { id ->
+                        DetailScreenRoot(id)
                     }
                 )
             }

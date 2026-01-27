@@ -1,5 +1,6 @@
 package com.example.nav
 
+import androidx.navigation.NavOptionsBuilder
 import com.example.core.navigation.NavigationService
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -16,10 +17,18 @@ class Navigator @Inject constructor(): NavigationService {
 
 
     override fun goBack() {
-        val result = _navActions.tryEmit(NavAction.GoBack)
+        _navActions.tryEmit(NavAction.GoBack)
+    }
+
+    override fun navigate(
+        route: String,
+        navOptions: NavOptionsBuilder.() -> Unit
+    ) {
+       _navActions.tryEmit(NavAction.Navigate(route, navOptions))
     }
 
     sealed class NavAction {
         object GoBack : NavAction()
+        data class Navigate(val route: String, val navOptionBuilder: NavOptionsBuilder.() -> Unit): NavAction()
     }
 }

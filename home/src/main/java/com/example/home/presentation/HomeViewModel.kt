@@ -19,7 +19,11 @@ class HomeViewModel @Inject constructor(val navigator: NavigationService, val us
         when(event) {
             is HomeEvent.LoadHomeData -> loadInitialData()
             is HomeEvent.Dismiss -> navigator.goBack()
-            is HomeEvent.NavigateToDetail -> {}
+            is HomeEvent.NavigateToDetail -> {
+                navigator.navigate("detail/${event.id}") {
+                    launchSingleTop = true
+                }
+            }
         }
     }
 

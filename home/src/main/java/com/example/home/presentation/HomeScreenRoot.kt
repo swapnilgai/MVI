@@ -2,6 +2,7 @@ package com.example.home.presentation
 
 import android.widget.Button
 import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -39,7 +40,9 @@ fun HomeScreenRoot() {
         state.value.errorMessage != null -> {
             ErrorComponent( state.value.errorMessage!!)
         }
-        state.value.data?.isNotEmpty() == true -> { HomeScreen(state.value.data!!) }
+        state.value.data?.isNotEmpty() == true -> { HomeScreen(state.value.data!!,
+            { id : String -> viewModel.setEvent(HomeEvent.NavigateToDetail(id)) }
+        ) }
     }
 
     BackHandler(true) {
@@ -50,7 +53,7 @@ fun HomeScreenRoot() {
 
 
 @Composable
-fun HomeScreen(list: List<LatestNews>){
+fun HomeScreen(list: List<LatestNews>, onClick: (String) -> Unit){
 
     Column {
         Row(modifier = Modifier.fillMaxWidth().padding(20.dp).wrapContentHeight()) {
@@ -65,7 +68,7 @@ fun HomeScreen(list: List<LatestNews>){
         LazyColumn(modifier = Modifier.fillMaxWidth().weight(1f)) {
 
             items(list, key = { it.articleId }) { item ->
-                NewsItem(data = item)
+                NewsItem(data = item, onClick = onClick)
             }
 
         }
@@ -73,8 +76,8 @@ fun HomeScreen(list: List<LatestNews>){
 }
 
 @Composable
-fun NewsItem(data: LatestNews){
-    Column(modifier = Modifier.fillMaxWidth().height(200.dp)) {
+fun NewsItem(data: LatestNews, onClick: (String) -> Unit){
+    Column(modifier = Modifier.fillMaxWidth().height(200.dp).clickable{ onClick(data.articleId) }) {
         Text(data.title?:"", modifier = Modifier.padding(10.dp))
 
         CoilImageComponent(
