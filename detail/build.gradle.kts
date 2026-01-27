@@ -49,9 +49,9 @@ dependencies {
 
     //region test
     testImplementation(libs.junit)
-    testImplementation(libs.mockito)
-    testImplementation(libs.mockito.core)
-    testImplementation(libs.android.test)
+    testImplementation(libs.truth)
     testImplementation(libs.coroutines.test)
+    testImplementation(libs.mockk)
     //endregion
+
 }
