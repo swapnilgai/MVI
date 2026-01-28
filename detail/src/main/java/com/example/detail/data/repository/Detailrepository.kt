@@ -2,7 +2,6 @@ package com.example.detail.data.repository
 
 import com.example.detail.data.DetailApi
 import com.example.detail.data.model.ArticleNetworkResponse
-import com.example.detail.data.model.DetailNetworkResponse
 import com.example.network.extensions.handleCall
 import javax.inject.Inject
 
