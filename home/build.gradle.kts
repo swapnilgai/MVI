@@ -45,6 +45,7 @@ dependencies {
     implementation(platform(libs.compose.bom))
     implementation(libs.compose.hilt.navigation)
     implementation(libs.compose.ui.graphics)
+    implementation(libs.lifecycle.runtime.compose)
     implementation(libs.pager)
     implementation(libs.compose.ui.material)
     implementation(libs.compose.activity)

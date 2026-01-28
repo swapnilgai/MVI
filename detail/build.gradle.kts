@@ -44,6 +44,7 @@ dependencies {
     implementation(libs.compose.navigation)
     implementation(libs.compose.ui.material)
     implementation(libs.compose.activity)
+    implementation(libs.lifecycle.runtime.compose)
     implementation(libs.coil)
     //endregion
 

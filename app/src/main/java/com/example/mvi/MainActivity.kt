@@ -2,18 +2,10 @@ package com.example.mvi
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import com.example.detail.DetailScreenRoot
+import com.example.detail.presentation.DetailScreenRoot
 import com.example.home.presentation.HomeScreenRoot
 import com.example.nav.AppNavigator
 import com.example.nav.Navigator
